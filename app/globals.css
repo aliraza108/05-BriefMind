@@ -1,0 +1,64 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: #080b14;
+}
+
+body {
+  @apply font-body text-brand-text antialiased;
+  background-image: radial-gradient(circle at 20% -10%, rgba(0, 212, 255, 0.1), transparent 30%),
+    radial-gradient(circle at 80% 90%, rgba(14, 165, 233, 0.08), transparent 35%);
+}
+
+* {
+  border-color: rgba(31, 41, 55, 0.9);
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.35);
+  color: #f9fafb;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(14, 165, 233, 0.22) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.glass-border {
+  position: relative;
+}
+
+.glass-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(0, 212, 255, 0.35), rgba(255, 255, 255, 0.02), rgba(14, 165, 233, 0.35));
+  z-index: -1;
+}
+
+.dropzone-dashed {
+  background-image: linear-gradient(90deg, rgba(0, 212, 255, 0.5) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.5) 50%, transparent 50%),
+    linear-gradient(0deg, rgba(0, 212, 255, 0.5) 50%, transparent 50%),
+    linear-gradient(0deg, rgba(0, 212, 255, 0.5) 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 16px 2px, 16px 2px, 2px 16px, 2px 16px;
+  background-position: left top, right bottom, left bottom, right top;
+  animation: dashMove 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .bg-dot-grid {
+    background-size: 20px 20px;
+  }
+}
+
