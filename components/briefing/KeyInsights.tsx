@@ -8,7 +8,7 @@ import { ImpactBar } from "@/components/shared/ImpactBar";
 import { GlowCard } from "@/components/shared/GlowCard";
 
 export function KeyInsights({ briefing }: { briefing: Briefing }) {
-  const insights = briefing.key_insights ?? [];
+  const insights = useMemo(() => briefing.key_insights ?? [], [briefing.key_insights]);
   const themes = useMemo(
     () => Array.from(new Set(insights.map((item) => item.theme).filter(Boolean) as string[])),
     [insights]
@@ -70,4 +70,3 @@ export function KeyInsights({ briefing }: { briefing: Briefing }) {
     </div>
   );
 }
-
